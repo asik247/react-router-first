@@ -1,35 +1,60 @@
-import React from 'react';
+import { Menu, X } from 'lucide-react';
+import React, { useState } from 'react';
 
 const Navbar = () => {
-    return (
-    <div className="navbar bg-base-100 shadow-sm">
-  <div className="navbar-start">
-    <div className="dropdown">
-      <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /> </svg>
+
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <nav className="bg-white shadow-md sticky top-0 z-50">
+      <div className="flex justify-between items-center w-11/12 mx-auto py-4">
+
+        {/* Mobile Menu Icon */}
+        <div className='lg:hidden'>
+          {
+            isOpen ?
+              <X size={28} className="cursor-pointer" onClick={() => setIsOpen(false)} /> :
+              <Menu size={28} className="cursor-pointer" onClick={() => setIsOpen(true)} />
+          }
+
+          {/* Mobile Dropdown */}
+          {isOpen && (
+            <div className="absolute left-0 top-16 w-full bg-white shadow-lg border-t">
+              <ul className="flex flex-col items-center gap-4 py-6 text-lg font-medium">
+                <li><a className="hover:text-blue-600 transition" href="#">Home</a></li>
+                <li><a className="hover:text-blue-600 transition" href="#">About</a></li>
+                <li><a className="hover:text-blue-600 transition" href="#">Contact</a></li>
+              </ul>
+            </div>
+          )}
+        </div>
+
+        {/* Logo */}
+        <div>
+          <a className='font-bold text-2xl text-blue-600 tracking-wide' href="#">
+            Logo
+          </a>
+        </div>
+
+        {/* Desktop Menu */}
+        <div className='hidden lg:flex'>
+          <ul className='flex items-center gap-8 text-lg font-medium'>
+            <li><a className="hover:text-blue-600 transition" href="#">Home</a></li>
+            <li><a className="hover:text-blue-600 transition" href="#">About</a></li>
+            <li><a className="hover:text-blue-600 transition" href="#">Contact</a></li>
+          </ul>
+        </div>
+
+        {/* Button */}
+        <div>
+          <button className='px-5 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition duration-300'>
+            LogOut
+          </button>
+        </div>
+
       </div>
-      <ul
-        tabIndex="-1"
-        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Navbar</a></li>
-      </ul>
-    </div>
-    <a className="btn btn-ghost text-xl">Router</a>
-  </div>
-  <div className="navbar-center hidden lg:flex">
-    <ul className="menu menu-horizontal px-1">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Navbar</a></li>
-    </ul>
-  </div>
-  <div className="navbar-end">
-    <a className="btn">LogOut</a>
-  </div>
-</div>
-    );
+    </nav>
+  );
 };
 
 export default Navbar;
