@@ -39,9 +39,9 @@ const Navbar = () => {
         {/* Desktop Menu */}
         <div className='hidden lg:flex'>
           <ul className='flex items-center gap-8 text-lg font-medium'>
-            <li><a className="hover:text-blue-600 transition" href="#">Home</a></li>
-            <li><a className="hover:text-blue-600 transition" href="#">About</a></li>
-            <li><a className="hover:text-blue-600 transition" href="#">Contact</a></li>
+            <li><a className="hover:text-blue-600 transition" href="/">Home</a></li>
+            <li><a className="hover:text-blue-600 transition" href="about">About</a></li>
+            <li><a className="hover:text-blue-600 transition" href="contact">Contact</a></li>
           </ul>
         </div>
 
