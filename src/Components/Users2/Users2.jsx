@@ -11,6 +11,7 @@ const Users2 = ({ promiseUsers }) => {
                 <h1>{email}</h1>
                 <p>{username}</p>
                 <h3>{name}</h3>
+                <p>Name</p>
             </div>
         </div>
     );
