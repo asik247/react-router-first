@@ -1,5 +1,5 @@
 import React from 'react';
-import { useLoaderData, useNavigate } from 'react-router';
+import { useLoaderData, useNavigate, useParams } from 'react-router';
 
 const CommentsDetails = () => {
     const commentDetailsData = useLoaderData()
@@ -7,6 +7,10 @@ const CommentsDetails = () => {
     const {name,body,postId} = commentDetailsData;
     // use Navgate code start here;
     const navgate = useNavigate()
+
+    // use params code start here;
+    const params = useParams();
+    console.log(params);
     return (
         <div className='w-11/12 mx-auto m-20'>
             <div className="card block w-full bg-base-100 card-sm shadow-sm">
