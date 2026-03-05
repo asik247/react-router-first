@@ -24,13 +24,16 @@ const User = ({user}) => {
             
             <Link to={`/users/${id}`}>
              <button className='btn'>Details</button>
+             </Link>
+             {/* same card ar nise data load hobe */}
+
              <button onClick={handleToggle} className='btn btn-ghost'> {showInfo?"Hide":"Show"} Info</button>
              {
                 showInfo && <Suspense fallback={<h1>Loadding...</h1>}>
                     <Users2 promiseUsers={promiseUsers}></Users2>
                 </Suspense>
              }
-             </Link>
+             
           </div>
         </div>
     );
