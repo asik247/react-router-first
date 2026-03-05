@@ -8,7 +8,7 @@ import Home from './Components/Home/Home.jsx'
 import Root from './Components/Routs/Root.jsx'
 import About from './Components/About/About.jsx'
 import Contact from './Components/Contact/Contact.jsx'
-// import Navbar from './Components/Navbar/Navbar.jsx'
+
 
 const router = createBrowserRouter([
   {
