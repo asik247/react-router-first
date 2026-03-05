@@ -1,5 +1,5 @@
 import React, { Suspense, useState } from 'react';
-import { Link } from 'react-router';
+import { Link, Navigate, useLocation } from 'react-router';
 import Users2 from '../../Users2/Users2';
 
 const User = ({user}) => {
@@ -10,9 +10,15 @@ const User = ({user}) => {
     const promiseUsers = fetch(`https://jsonplaceholder.typicode.com/users/${id}`).then(res=>res.json())
     // use state code start here;
     const [showInfo,setShowInfo] = useState(false)
+    // visite hobe use navagate;
+    const [vistiHome,setVisitHome] = useState(false)
+    // user location jsut clg code here ;
+    const location = useLocation();
+    console.log(location);
     const handleToggle = ()=>{
         setShowInfo(!showInfo);
     }
+    
 
 
     return (
@@ -33,8 +39,15 @@ const User = ({user}) => {
                     <Users2 promiseUsers={promiseUsers}></Users2>
                 </Suspense>
              }
+
+            <button onClick={()=>setVisitHome(true)} className='btn btn-ghost'>Visit Home</button>
+           
              
           </div>
+             {/* conditionaly navigate kore home page jai ;;; useNavagate programmaly click korle chage hoy */}
+          {
+            vistiHome&& <Navigate to={'/'}></Navigate>
+          }
         </div>
     );
 };
