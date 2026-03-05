@@ -6,7 +6,7 @@ const Comment = ({comment}) => {
     const {id,name,email,boday} = comment;
     const navgate = useNavigate()
     const handleHome = ()=>{
-        navgate(`${id}`)
+        navgate('/')
     }
     return (
         <div className='border-3 boder-yellow-500 p-4 mb-4 w-11/12 mx-auto'>

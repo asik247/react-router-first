@@ -1,9 +1,20 @@
-import React from 'react';
+import React, { Suspense, useState } from 'react';
 import { Link } from 'react-router';
+import Users2 from '../../Users2/Users2';
 
 const User = ({user}) => {
     // console.log(user);
     const {id,name,username,email} = user;
+
+    // fetch old way in this components load data;
+    const promiseUsers = fetch(`https://jsonplaceholder.typicode.com/users/${id}`).then(res=>res.json())
+    // use state code start here;
+    const [showInfo,setShowInfo] = useState(false)
+    const handleToggle = ()=>{
+        setShowInfo(!showInfo);
+    }
+
+
     return (
         <div>
           <div className='border-2 border-green-500 p-4 mb-4'>
@@ -13,6 +24,12 @@ const User = ({user}) => {
             
             <Link to={`/users/${id}`}>
              <button className='btn'>Details</button>
+             <button onClick={handleToggle} className='btn btn-ghost'> {showInfo?"Hide":"Show"} Info</button>
+             {
+                showInfo && <Suspense fallback={<h1>Loadding...</h1>}>
+                    <Users2 promiseUsers={promiseUsers}></Users2>
+                </Suspense>
+             }
              </Link>
           </div>
         </div>
