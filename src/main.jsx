@@ -10,6 +10,7 @@ import About from './Components/About/About.jsx'
 import Contact from './Components/Contact/Contact.jsx'
 import Users from './Components/Users/Users.jsx'
 import Post from './Components/Post/Post.jsx'
+import UsersDetails from './Components/UsersDetails/UsersDetails.jsx'
 
 // old fetch data load.
 const postPromise = fetch("https://jsonplaceholder.typicode.com/users/1/todos").then(res=>res.json())
@@ -23,11 +24,23 @@ const router = createBrowserRouter([
       {path:"about",Component:About},
       {path:"contact",Component:Contact},
       {path:"about",Component:About},
+
       {
         path:"users",
-        loader:()=> fetch("https://jsonplaceholder.typicode.com/users/1/posts"),
+        loader:()=> fetch("https://jsonplaceholder.typicode.com/users"),
         Component:Users
       },
+      {
+        path:"users/:usersId",
+        loader:({params})=>fetch(`https://jsonplaceholder.typicode.com/users/${params.usersId}`),
+        Component:UsersDetails
+      },
+
+
+
+
+
+
       {path:"post",
        element:<Suspense fallback={<span>Loaddin...</span>}>
 
