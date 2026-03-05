@@ -61,8 +61,14 @@ const router = createBrowserRouter([
         <Post postPromise={postPromise}></Post>
        </Suspense>
       }
+     
     ]
+     
   }
+  ,{
+        path:'*',
+        element:<h1>404 page not found</h1>
+      }
 ])
 
 createRoot(document.getElementById('root')).render(
