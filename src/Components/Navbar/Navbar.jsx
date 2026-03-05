@@ -27,6 +27,7 @@ const Navbar = () => {
                 <li><NavLink className="hover:text-blue-600 transition" to="contact">Contact</NavLink></li>
                 <li><NavLink className="hover:text-blue-600 transition" to="users">Users</NavLink></li>
                 <li><NavLink className="hover:text-blue-600 transition" to="post">Post</NavLink></li>
+                <li><NavLink className="hover:text-blue-600 transition" to="/comments">Comments</NavLink></li>
               </ul>
             </div>
           )}
@@ -47,6 +48,8 @@ const Navbar = () => {
             <li><NavLink className="hover:text-blue-600 transition" to="contact">Contact</NavLink></li>
             <li><NavLink className="hover:text-blue-600 transition" to="users">Users</NavLink></li>
             <li><NavLink className="hover:text-blue-600 transition" to="post">Post</NavLink></li>
+            <li><NavLink className="hover:text-blue-600 transition" to="/comments">Comments</NavLink></li>
+            
           </ul>
         </div>
 
