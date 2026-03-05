@@ -1,9 +1,13 @@
 import React from 'react';
-import { Link } from 'react-router';
+import { Link, useNavigate } from 'react-router';
 
 const Comment = ({comment}) => {
     // console.log(comment);
     const {id,name,email,boday} = comment;
+    const navgate = useNavigate()
+    const handleHome = ()=>{
+        navgate(`${id}`)
+    }
     return (
         <div className='border-3 boder-yellow-500 p-4 mb-4 w-11/12 mx-auto'>
             <h1>{name}</h1>
@@ -12,6 +16,7 @@ const Comment = ({comment}) => {
             <Link to={`/comments/${id}`}>
                 <button className='btn btn-ghost'>Show Details</button>
             </Link>
+            <button onClick={handleHome}  className='btn btn-ghost'>Home page</button>
         </div>
     );
 };

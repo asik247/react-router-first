@@ -3,7 +3,7 @@ import { useLoaderData } from 'react-router';
 
 const UsersDetails = () => {
     const detailsData = useLoaderData()
-    console.log(detailsData);
+    // console.log(detailsData);
     return (
         <div>
             {/* <h1>Users Details</h1> */}
